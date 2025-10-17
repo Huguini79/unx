@@ -10,6 +10,7 @@ void kernel_main() {
 	for(int i = 0; i < 80; i++) {
 		terminal_writechar(' ', 0x1F);
 	}
+	terminal_writechar('\n', 0x4F);
 	terminal_writechar('u', 0x4F);
 	terminal_writechar('n', 0x4F);
 	terminal_writechar('x', 0x4F);

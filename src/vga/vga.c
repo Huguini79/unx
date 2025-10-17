@@ -43,6 +43,10 @@ void terminal_writechar(char c, char colour) {
 		terminal_row += 1; // Move the cursor down
 		terminal_col = 0; // Move the cursor to the left
 	}
+	
+	if(vga->terminal_row >= VGA_HEIGHT) {
+		clear(); // Clear the screen
+	}
 
 	vga->terminal_row = terminal_row; // Put the terminal_row variable into the vga->terminal_row variable
 	vga->terminal_col = terminal_col; // Put the terminal_col variable into vga->terminal_col variable
@@ -105,5 +109,16 @@ void clear() {
 	// Fill the screen with blue
 
 	fill_screen_with_blue();
+	
+	printx("Welcome to Unx Kernel - Huguini79                                               ");
+	for(int i = 0; i < 80; i++) {
+		terminal_writechar(' ', 0x1F);
+	}
+	terminal_writechar('\n', 0x4F);
+	terminal_writechar('u', 0x4F);
+	terminal_writechar('n', 0x4F);
+	terminal_writechar('x', 0x4F);
+	terminal_writechar('>', 0x4F);
+	terminal_writechar(' ', 0x4F);
 
 }
