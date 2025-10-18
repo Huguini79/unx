@@ -161,12 +161,12 @@ void init_keyboard() {
 			}
 			if(scancode == 0x1C) { // ENTER
 				if(strncmp(buffer, "", 1) == 0) {
-					say_unx();	
+					say_unx();
 				}
 				else if(strncmp(buffer, "unx", 3) == 0) {
 					printx("\nWELCOME TO UNX\n");
 					say_unx();
-					
+
 				}
 				else if(strncmp(buffer, "bonus", 5) == 0) {
 					clear();
@@ -183,7 +183,7 @@ void init_keyboard() {
 					for(int i2 = 0; i2 < 45; i2++) {
 						printx("=");
 					}
-					printx("\n1) unx - welcome message\n2) bonus - Bonus text\n3) docsvga - Documentation of the VGA driver\n4) docsio - Documentation of the I/O driver\n");
+					printx("\n1) unx - welcome message\n2) bonus - Bonus text\n3) docsvga - Documentation of the VGA driver\n4) docsio - Documentation of the I/O driver\n5) drawing - Shows a simple drawing made with ASCII characters\n6) levelssong - The words of the song of Levels Avicii\n7) thefinalcountdown - The words of the song the final countdown the europe\n");
 					say_unx();
 				}
 				else if(strncmp(buffer, "docsvga", 7) == 0) {
@@ -194,6 +194,30 @@ void init_keyboard() {
 				else if(strncmp(buffer, "docsio", 6) == 0) {
 					clear();
 					printx("\n\n=====================\n====src/io/io.asm====\n=====================\n\n\nglobal insb\n\ninsb:\npush ebp\nmov ebp, esp\n\nxor eax, eax\nmov edx, [ebp + 8]\nin al, dx\n\npop ebp\nret\n");
+					say_unx();
+				}
+				else if(strncmp(buffer, "drawing", 7) == 0) {
+					clear();
+					printx("\n");
+					for(int i = 0; i < 70; i++) {
+						terminal_writechar('=', 0x3F);
+					}
+					for(int i2 = 0; i2 < 89; i2++) {
+						terminal_writechar('=', 0x3F);
+					}
+
+					printx("\n\n	|/\n	-\n	|/\n");
+					say_unx();
+
+				}
+				else if(strncmp(buffer, "levelssong", 10) == 0) {
+					clear();
+					printx("\nOh, sometimes I get a good feeling, yeahGet a feeling that I never, never, never, never had before, no noI get a good feeling, yeahOh, sometimes I get a good feeling, yeahGet a feeling that I never, never, never, never had before, no noI get a good feeling, yeah\n");
+					say_unx();
+				}
+				else if(strncmp(buffer, "thefinalcountdown", 10) == 0) {
+					clear();
+					printx("\nWe're leaving together, but still, it's farewell And maybe we'll come back to Earth, who can tell? I guess there is no one to blame We're leaving ground (Leaving ground) Will things ever be the same again? [Chorus] It's the final countdown The final countdown [Verse 2] Oh-oh, we're heading for Venus (Venus) And still, we stand tall 'Cause maybe they've seen us And welcome us all, yeah With so many light years to go And things to be found (To be found) I'm sure that we'll all miss her so [Chorus] It's the final countdown The final countdown The final countdown (Final countdown) Oh, oh-oh, oh-oh-ohh See upcoming rock shows Get tickets for your favorite artists You might also like Darling, I Tyler, The Creator St. Chroma Tyler, The Creator Happy New Year ABBA [Guitar Solo] [Chorus] The final countdown, oh, oh It's the final countdown The final countdown The final countdown (Final countdown) [Outro] Oh, it's the final countdown We're leaving together (The final countdown) We'll all miss her so It's the final countdown (Final countdown), oh It's the final countdown Yeah\n");
 					say_unx();
 				}
 				else {
