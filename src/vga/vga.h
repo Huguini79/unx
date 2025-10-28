@@ -41,4 +41,7 @@ void fill_screen_with_blue();
 // Define the clear function to clear the screen
 void clear();
 
+// Define the kernel panic function
+void panic(const char* str);
+
 #endif

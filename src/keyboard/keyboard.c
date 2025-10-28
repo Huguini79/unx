@@ -45,6 +45,10 @@ void init_keyboard() {
 	while(1) {
 		uint8_t status = insb(0x64); // Detect keyboard status
 
+		if(status & 0x20) {
+			printx("ratón presionado");
+		}
+
 		if(status & 0x01) { // Key has been pressed
 			uint8_t scancode = insb(0x60);
 
